@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-10-11
+  price: 1.5
+  user: one
+  product: one
+
+two:
+  date: 2018-10-11
+  price: 1.5
+  user: two
+  product: two
