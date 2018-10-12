@@ -15,6 +15,7 @@ class ModelsController < ApplicationController
   # GET /models/new
   def new
     @model = Model.new
+    @brands = Brand.all
   end
 
   # GET /models/1/edit
@@ -25,7 +26,6 @@ class ModelsController < ApplicationController
   # POST /models.json
   def create
     @model = Model.new(model_params)
-
     respond_to do |format|
       if @model.save
         format.html { redirect_to @model, notice: 'Model was successfully created.' }

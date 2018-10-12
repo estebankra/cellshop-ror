@@ -15,6 +15,12 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @memories = Memory.all
+    @colors = Color.all
+    @models = Model.all
+    @storages = Storage.all
+
+
   end
 
   # GET /products/1/edit

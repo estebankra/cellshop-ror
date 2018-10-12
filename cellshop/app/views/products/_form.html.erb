@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="field">
@@ -33,22 +33,22 @@
 
   <div class="field">
     <%= form.label :model_id %>
-    <%= form.text_field :model_id %>
+    <%= form.collection_select :model_id, @models, :id, :name %>
   </div>
 
   <div class="field">
     <%= form.label :memory_id %>
-    <%= form.text_field :memory_id %>
+    <%= form.collection_select :memory_id, @memories, :id, :description %>
   </div>
 
   <div class="field">
     <%= form.label :color_id %>
-    <%= form.text_field :color_id %>
+    <%= form.collection_select :color_id, @colors, :id, :name %>
   </div>
 
   <div class="field">
     <%= form.label :storage_id %>
-    <%= form.text_field :storage_id %>
+    <%= form.collection_select :storage_id, @storages, :id, :description %>
   </div>
 
   <div class="actions">

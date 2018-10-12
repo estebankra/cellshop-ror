@@ -1,6 +1,6 @@
 module PermissionsConcern
 	extend ActiveSupport::Concern
-	def in_normal_user?
+	def is_normal_user?
 		self.permission_level >= 1
 	end
 

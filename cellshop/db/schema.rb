@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_11_160823) do
+ActiveRecord::Schema.define(version: 2018_10_12_175110) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description"
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 2018_10_11_160823) do
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description"
-    t.string "image"
     t.integer "stock"
     t.float "price"
     t.bigint "model_id"
@@ -85,6 +84,10 @@ ActiveRecord::Schema.define(version: 2018_10_11_160823) do
     t.bigint "storage_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["color_id"], name: "index_products_on_color_id"
     t.index ["memory_id"], name: "index_products_on_memory_id"
     t.index ["model_id"], name: "index_products_on_model_id"
