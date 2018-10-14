@@ -10,10 +10,24 @@
       <% if user_signed_in? %>
         <li class="col-md">
           <%= link_to "Carrito", carts_path %>
-      </li>
-        <li class="col-md">
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
         </li>
+        <li class="col-md">
+          <%= link_to "Pedidos", orders_path %>
+        </li>
+        <li class="col-md">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <%= current_user.email %>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><%= link_to "Perfil", user_session_path%></li>
+            <li role="separator" class="divider"></li>
+            <li class="col-md">
+              <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+            </li>
+          </ul>
+        </div>
+      </li>
       <%else%>
         <li class="col-md">
             <%= link_to "Inicia sesión", new_user_session_path %>  o  <%= link_to "Registrate", new_user_registration_path %>

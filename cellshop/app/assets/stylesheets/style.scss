@@ -4,15 +4,16 @@
 html, body {
     height: 100%;
     margin: 0px;
-    font-size: 16px;
+    font-size: 18px;
 	font-family: 'Raleway', sans-serif !important;
 
 }
 
 .container-div{
 	margin: 15%;
+	margin-bottom: 0px;
 	margin-top: 0px;
-	font-size: 17px;
+	font-size: 18px;
 }
 
 .full-reset{
@@ -20,6 +21,10 @@ html, body {
 	padding: 0;
 	width: 100%;
 	box-sizing: border-box;
+}
+
+.thumbnail{
+	margin-left: 10px;
 }
 
 .be-red{
@@ -39,12 +44,12 @@ a, a:visited{
 }
 
 li {
-	font-size: 16px;
+	font-size: 18px;
 }
 
 
 #infoCabecera {
-	font-size: 17px;
+	font-size: 18px;
 	margin: 8px;
 }
 

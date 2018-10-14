@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @brands = Brand.all
   end
 
   # GET /products/1
@@ -25,6 +26,10 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @memories = Memory.all
+    @colors = Color.all
+    @models = Model.all
+    @storages = Storage.all
   end
 
   # POST /products

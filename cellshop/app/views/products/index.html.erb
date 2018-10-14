@@ -1,6 +1,18 @@
 <div class="container-div">
   <h1>Celulares</h1>
+  <% if !user_signed_in? %>
+  <div class="alert alert-info" role="alert">
+      <p>Debes <%= link_to "iniciar sesión", new_user_session_path %> para agregar articulos a tu carrito</p>
+  </div>
+  <%end%>
   <tbody>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#">Todos</a></li>
+      <% @brands.each do |brand| %>
+        <li role="presentation"><a href="#"><%= brand.description %></a></li>
+      <%end%>
+    </ul><br>
+
     <% @products.each do |product| %>
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="thumbnail thumbnail-content-phones">
@@ -28,8 +40,6 @@
           <%= link_to "Ver más", product, class:"btn btn-danger" %>
           <a href="s" class="btn btn-success" role="button"
           title="Agregar al carrito"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-          <% else %>
-          <p>Debes iniciar sesión para agregar articulos a tu carrito</p>
           </p>
           <%end%>
         </div>
