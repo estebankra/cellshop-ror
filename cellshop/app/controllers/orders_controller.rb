@@ -12,6 +12,17 @@ class OrdersController < ApplicationController
   def show
   end
 
+  def add
+    total_price = 0
+    order = Order.new
+    order.user_id = current_user.id
+    carts = Cart.where( user_id: current_user.id)
+    order.total_price = total_price
+    order.save
+    redirect_to 'order_details/create/self.order.id'
+    
+  end
+
   # GET /orders/new
   def new
     @order = Order.new

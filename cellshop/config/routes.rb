@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :order_details
   resources :carts
+  get 'carts/add/:id' => 'carts#add'
+  get 'orders/add/:id' => 'orders#add'
   resources :orders
   devise_for :users
   get 'home/index'

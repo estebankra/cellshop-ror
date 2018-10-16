@@ -1,9 +1,11 @@
 
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success" role="alert">
+    <p class="notice"><%= notice %></p>
+</div>
 
 <p>
   <strong>Date:</strong>
-  <%= @cart.date %>
+  <%= @cart.created_at %>
 </p>
 
 <p>

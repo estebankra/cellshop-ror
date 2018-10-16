@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2018_10_12_175110) do
   end
 
   create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "date"
     t.float "price"
     t.bigint "user_id"
     t.bigint "product_id"
@@ -65,7 +64,6 @@ ActiveRecord::Schema.define(version: 2018_10_12_175110) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "date_request"
     t.float "total_price"
     t.date "date_delivered"
     t.bigint "user_id"

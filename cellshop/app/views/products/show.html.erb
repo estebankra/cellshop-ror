@@ -1,4 +1,3 @@
-
 <div class="container-div">
   <div class="row center-xs">
       <div class="box">
@@ -89,7 +88,7 @@
     <div class="row center-xs">
       <div class="caption" role="menu" id="producto" name="producto">
           <p class="text-center"><b>Precio:</b> <%=@product.price%>gs</p>
-          <a href="s" class="btn btn-success" role="button" title="Agregar al carrito"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+          <a href="/carts/add/<%=@product.id%>" class="btn btn-success" role="button" title="Agregar al carrito"><span class="glyphicon glyphicon-shopping-cart"></span></a>
       </div>     
     </div>
   <%end%>    

@@ -12,9 +12,29 @@ class CartsController < ApplicationController
   def show
   end
 
+  #GET /carts/add/1
+  def add
+    @cart = Cart.new
+    product = Product.find(params[:id])
+    @cart.price = product.price
+    @cart.product_id = product.id
+    @cart.user_id = current_user.id
+
+    respond_to do |format|
+      if @cart.save
+        format.html { redirect_to carts_path, notice: 'Cart was successfully created.' }
+      else
+        format.html { render :new }
+        format.json { render json: @cart.errors, status: :unprocessable_entity }
+      end
+    end
+    
+  end
+
   # GET /carts/new
   def new
     @cart = Cart.new
+
   end
 
   # GET /carts/1/edit
@@ -69,6 +89,6 @@ class CartsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cart_params
-      params.require(:cart).permit(:date, :price, :user_id, :product_id)
+      params.require(:cart).permit(:price, :user_id, :product_id)
     end
 end

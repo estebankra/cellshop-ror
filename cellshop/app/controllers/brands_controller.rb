@@ -10,6 +10,8 @@ class BrandsController < ApplicationController
   # GET /brands/1
   # GET /brands/1.json
   def show
+    @brands = Brand.all
+    @products = Product.joins(:model).where(models: { brand_id: (params[:id]) })
   end
 
   # GET /brands/new

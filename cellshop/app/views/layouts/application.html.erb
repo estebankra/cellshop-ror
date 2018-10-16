@@ -21,16 +21,18 @@
   <body>
     <div class="page-container">
       <%= render "partials/navigation" %>
-      <% unless notice.nil? %>
-      <div class="alert alert-success" role="alert">
-        <p class="notice"><%= notice %></p>
+      <div class="alerts-div">
+        <% unless notice.nil? %>
+          <div class="alert alert-success" role="alert">
+            <p class="notice"><%= notice %></p>
+          </div>
+        <%end%>
+        <% unless alert.nil? %>
+          <div class="alert alert-warning" role="alert">
+            <p class="alert"><%= alert %></p>
+          </div>
+        <%end%>
       </div>
-      <%end%>
-      <% unless alert.nil? %>
-      <div class="alert alert-warning" role="alert">
-        <p class="alert"><%= alert %></p>
-      </div>
-      <%end%>
       <%= yield %>
       <%= render "partials/footer" %>
     </div>

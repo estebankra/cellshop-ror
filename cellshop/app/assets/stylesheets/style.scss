@@ -12,8 +12,22 @@ html, body {
 .container-div{
 	margin: 15%;
 	margin-bottom: 0px;
-	margin-top: 0px;
+	margin-top: 2%;
 	font-size: 18px;
+}
+
+
+.container-form{
+	margin: 40%;
+	margin-bottom: 0px;
+	margin-top: 6%;
+	font-size: 18px;
+}
+
+.alerts-div{
+	margin: 15%;
+	margin-top: 1%;
+	margin-bottom: 0px;
 }
 
 .full-reset{
@@ -82,6 +96,14 @@ li {
 	padding-bottom: 0px !important;
 }
 
+.row{
+	margin: 0px !important;	
+}
+
+.white{
+	color: white !important;
+}
+
 .center{
 	margin-left: 37%;
 }
@@ -117,7 +139,7 @@ footer{
 }
 .section{
 	margin: 0;
-	padding: 50px 0;
+	padding: 10px 0;
 	width: 100%;
 }
 .center-box-content{
@@ -371,7 +393,7 @@ footer{
 		padding-bottom: 60px;
 	}
     .jumbotron > p{
-		font-size: 18px;
+		font-size: 19px;
 	}
 	.navbar-collapse.collapse{
    		 display: flex!important;
