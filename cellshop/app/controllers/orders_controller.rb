@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  after_action :create_details, only: [:add]
 
   # GET /orders
   # GET /orders.json
@@ -14,12 +15,16 @@ class OrdersController < ApplicationController
 
   def add
     total_price = 0
-    order = Order.new
-    order.user_id = current_user.id
+    @order = Order.new
     carts = Cart.where( user_id: current_user.id)
-    order.total_price = total_price
-    order.save
-    redirect_to 'order_details/create/self.order.id'
+    carts.each do |cart|
+      total_price = total_price + cart.price
+    end 
+
+    @order.user_id = current_user.id
+    @order.total_price = total_price
+    @order.save
+    redirect_to root_path
     
   end
 
@@ -73,6 +78,18 @@ class OrdersController < ApplicationController
   end
 
   private
+
+    def create_details
+      carts = Cart.where( user_id: current_user.id)
+      carts.each do |cart|
+        order_detail = OrderDetail.new
+        order_detail.order_id = @order.id
+        order_detail.product_id =  cart.product_id
+        order_detail.price =  cart.price
+        order_detail.save
+      end 
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])

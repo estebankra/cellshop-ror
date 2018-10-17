@@ -12,18 +12,6 @@ class OrderDetailsController < ApplicationController
   def show
   end
 
-  def save
-    carts = Cart.where( user_id: current_user.id)
-    carts.each do |cart|
-      order_detail = OrderDetail.new
-      order_detail.order_id = order.id
-      order_detail.product_id =  cart.product_id
-      order_detail.price =  cart.price
-      total_price = total_price + cart.price
-      order_detail.save
-    end 
-  end
-  
   # GET /order_details/new
   def new
     @order_detail = OrderDetail.new

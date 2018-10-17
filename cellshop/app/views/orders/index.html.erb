@@ -16,9 +16,13 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr>
-          <td><%= order.date_request %></td>
+          <td><%= order.created_at %></td>
           <td><%= order.total_price %></td>
-          <td><%= order.date_delivered %></td>
+          <% if order.date_delivered.nil?%>
+            <td>No entregado</td>
+          <%else%>
+            <td>order.date_delivered </td>
+          <%end%>
           <td><%= link_to 'Detalles', order %></td>
         </tr>
       <% end %>
