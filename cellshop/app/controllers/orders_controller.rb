@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order_details = OrderDetail.where(order_id: params[:id])
   end
 
   def add
@@ -19,13 +20,15 @@ class OrdersController < ApplicationController
     carts = Cart.where( user_id: current_user.id)
     carts.each do |cart|
       total_price = total_price + cart.price
-    end 
-
-    @order.user_id = current_user.id
-    @order.total_price = total_price
-    @order.save
-    redirect_to root_path
-    
+    end
+    if total_price = 0
+      redirect_to product_path
+    else
+      @order.user_id = current_user.id
+      @order.total_price = total_price
+      @order.save
+      redirect_to orders_path
+    end
   end
 
   # GET /orders/new
@@ -85,8 +88,16 @@ class OrdersController < ApplicationController
         order_detail = OrderDetail.new
         order_detail.order_id = @order.id
         order_detail.product_id =  cart.product_id
+
+        #Descontamos stock
+        product = Product.find(cart.product_id)
+        product.stock -= 1
+        product.save
+
+
         order_detail.price =  cart.price
         order_detail.save
+        cart.destroy
       end 
     end
 

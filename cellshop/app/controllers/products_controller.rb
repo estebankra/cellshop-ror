@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.where("stock > :minimun_stock", {minimun_stock: 0})
     @brands = Brand.all
   end
 
@@ -80,6 +80,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:description, :image, :stock, :price, :model_id, :memory_id, :color_id, :storage_id)
+      params.require(:product).permit(:description, :image, :stock, :price, :model_id, :memory_id, :color_id, :storage_id, :video)
     end
 end
