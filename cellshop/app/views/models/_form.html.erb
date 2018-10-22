@@ -12,41 +12,41 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label 'Nombre'%>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :resolution %>
-    <%= form.text_field :resolution %>
+    <%= form.label 'Resolución' %>
+    <%= form.text_field :resolution, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :screen %>
-    <%= form.text_field :screen %>
+    <%= form.label 'Pantalla' %>
+    <%= form.text_field :screen, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :weight %>
-    <%= form.text_field :weight %>
+    <%= form.label 'Peso' %>
+    <%= form.text_field :weight, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :dimensions %>
-    <%= form.text_field :dimensions %>
+    <%= form.label 'Dimensiones' %>
+    <%= form.text_field :dimensions, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :batery %>
-    <%= form.text_field :batery %>
-  </div>
+    <%= form.label 'Bateria' %>
+    <%= form.text_field :batery, class: 'form-control' %>
+  </div><br>
 
   <div class="field">
-    <%= form.label :brand_id %>
-    <%= form.collection_select :brand_id, @brands, :id, :description %>
-  </div>
+    <%= form.label 'Marca' %>
+    <%= form.collection_select :brand_id, Brand.all, :id, :description, class: 'form-control' %>
+  </div><br>
 
   <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit class: 'btn btn-primary' %>
+  </div><br>
 <% end %>

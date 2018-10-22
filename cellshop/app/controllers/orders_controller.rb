@@ -21,14 +21,11 @@ class OrdersController < ApplicationController
     carts.each do |cart|
       total_price = total_price + cart.price
     end
-    if total_price = 0
-      redirect_to product_path
-    else
+
       @order.user_id = current_user.id
       @order.total_price = total_price
       @order.save
       redirect_to orders_path
-    end
   end
 
   # GET /orders/new

@@ -7,7 +7,8 @@
     <thead>
       <tr>
         <th scope="col">Nombre</th>
-        <th colspan="3"></th>
+        <th scope="col">Editar</th>
+        <th scope="col">Eliminar</th> 
       </tr>
     </thead>
 
@@ -15,8 +16,8 @@
       <% @colors.each do |color| %>
         <tr>
           <td><%= color.name %></td>
-          <td><%= link_to 'Editar', edit_color_path(color) %></td>
-          <td><%= link_to 'Eliminar', color, method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+          <td><%= link_to '', edit_color_path(color), class: 'glyphicon glyphicon-pencil' %></td>
+          <td><%= link_to '' , color, method: :delete, data: { confirm: 'Estás seguro?' }, class: "glyphicon glyphicon-remove"  %></td>
         </tr>
       <% end %>
     </tbody>
@@ -24,5 +25,5 @@
 
   <br>
 
-  <%= link_to 'Nuevo color', new_color_path %>
+  <%= link_to 'Nuevo color', new_color_path, class: 'btn btn-primary' %>
 </div>

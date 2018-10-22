@@ -2,11 +2,19 @@
     <section class="section">
         <div class="container">
 			<h1>Celulares</h1>	
-			<% if !user_signed_in? %>
-			  	<div class="alert alert-info" role="alert">
-			      <p>Debes <%= link_to "iniciar sesión", new_user_session_path %> para agregar articulos a tu carrito</p>
-			  	</div>
-		  	<%end%>
+
+			<!--Usuario normal -->
+		     <% if user_signed_in?%>
+		        <% if current_user.is_normal_user? %>
+		          <div class="alert alert-info" role="alert">
+		            <p>Debes <%= link_to "iniciar sesión", new_user_session_path %> para agregar articulos a tu carrito</p>
+		          </div>
+		          <!--Admin -->
+		        <%else%>
+		          <%= link_to 'Nuevo producto', new_product_path, class: 'btn btn-primary' %>
+		        <%end%>
+		      <%end%>
+		      
 		  	<tbody>
 		    <ul class="nav nav-tabs">
 		      <li role="presentation" class="active"><%= link_to "Todos",  products_path %></li>
@@ -17,34 +25,35 @@
 			<h1>Todos los celulares <%= @brand.description %> en stock</h1>
 		    <% @products.each do |product| %>
 		    <div class="col-xs-12 col-sm-6 col-md-3">
-		      <div class="thumbnail thumbnail-content-phones">
-		        <div class="img-products">
-		          <img class="img-responsive" <%= image_tag product.image.url(:medium) %>
-		        </div>
-		        <div class="caption" role="menu" id="producto" name="producto">
-		          <h4 class=" text-center"><%=product.model.name%></h4>
-		          <p class="text-justify"><%=product.description%></p>
-		          <p class="text-justify">
-		          <b>Memoria Ram:</b> <%=product.memory.description%></p>
-		          <p class="text-justify">
-		          <b>Almacenamiento:</b>
-		          <%=product.storage.description%>
-		          </p>
-		          <p class="text-justify">
-		          <b>Color:</b> <%=product.color.name%>
-		          </p>
-		          <p class="text-justify">
-		          <b>Precio:</b>
-		          <%=product.price%>gs
-		          </p>
-		          <p class="text-center">
-		          <%= link_to "Ver más", product, class:"btn btn-light" %>
-		          <% if user_signed_in? %>
-		          <a href="s" class="btn btn-success" role="button"
-		          title="Agregar al carrito"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-		          </p>
-		          <%end%>
-		        </div>
+		      	<div class="thumbnail thumbnail-content-phones">
+			        <div class="img-products">
+	                	<%= image_tag product.image.url(:thumb) %>
+	              	</div>
+	              	<div class="caption" role="menu" id="producto" name="producto">
+						<h4 class=" text-center"><%=product.model.name%></h4>
+						<p class="text-justify"><%= truncate(product.description, length:100) %></p>
+						<p class="text-justify">
+						<b>Almacenamiento:</b>
+						<%=product.storage.description%>
+						</p>
+						<p class="text-justify">
+						<b>Color:</b> <%=product.color.name%>
+						</p>
+						<p class="text-justify">
+						<b>Precio:</b>
+						<%=product.price%>gs
+						</p>
+						<p class="text-center">
+						<%= link_to "Ver más", product, class:"btn btn-dark" %>
+						<!--Usuario normal -->
+		               	<% if user_signed_in?%>
+		                  <% if current_user.is_normal_user? %>
+		                    <p class="text-center">
+		                      <a href="/carts/add/<%=product.id%>" class="btn btn-success" role="button" title="Agregar al carrito"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+		                    </p>
+		                  <%end%>
+		                <%end%>
+			        </div>
 		      </div>
 		    </div>
 		    <%end%>

@@ -9,56 +9,57 @@
       </li>
 
       <!--Usuario normal -->
-      <% if user_signed_in? != current_user.is_admin? %>
-        <li class="col-md">
-          <%= link_to "Carrito", carts_path %>
-        </li>
-        <li class="col-md">
-          <%= link_to "Pedidos", orders_path %>
-        </li>
-        <li class="col-md">
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <%= current_user.email %>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <li><%= link_to "Perfil", user_session_path%></li>
-            <li role="separator" class="divider"></li>
+      <% if user_signed_in?%>
+        <% if current_user.is_normal_user? %>
+          <li class="col-md">
+            <%= link_to "Carrito", carts_path %>
+          </li>
+          <li class="col-md">
+            <%= link_to "Pedidos", orders_path %>
+          </li>
+          <li class="col-md">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <%= current_user.email %>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><%= link_to "Perfil", user_session_path%></li>
+                <li role="separator" class="divider"></li>
+                <li class="col-md">
+                  <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <!--Admin -->
+        <%else%>
             <li class="col-md">
-              <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+              <%= link_to "Modelos", models_path %>
             </li>
-          </ul>
-        </div>
-      </li>
-
-      <!--Admin -->
-      <%elsif user_signed_in? == current_user.is_admin?%>
-        <li class="col-md">
-          <%= link_to "Modelos", models_path %>
-        </li>
-        <li class="col-md">
-          <%= link_to "Colores", colors_path %>
-        </li>
-        <li class="col-md">
-          <%= link_to "Memorias", memories_path %>
-        </li>
-        <li class="col-md">
-          <%= link_to "Marcas", brands_path %>
-        </li>
-        <li class="col-md">
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <%= current_user.email %>
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><%= link_to "Perfil", user_session_path%></li>
-              <li role="separator" class="divider"></li>
-              <li class="col-md">
-                <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
-              </li>
-            </ul>
-          </div>
-        </li>
+            <li class="col-md">
+              <%= link_to "Colores", colors_path %>
+            </li>
+            <li class="col-md">
+              <%= link_to "Memorias", memories_path %>
+            </li>
+            <li class="col-md">
+              <%= link_to "Marcas", brands_path %>
+            </li>
+            <li class="col-md">
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <%= current_user.email %>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to "Perfil", user_session_path%></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="col-md">
+                    <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          <%end%>
       <%else%>
         <li class="col-md">
             <%= link_to "Inicia sesión", new_user_session_path %>  o  <%= link_to "Registrate", new_user_registration_path %>

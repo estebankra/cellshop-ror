@@ -13,6 +13,9 @@
         <th>Dimensiones</th>
         <th>Bateria</th>
         <th>Marca</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+        
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -27,8 +30,8 @@
           <td><%= model.dimensions %></td>
           <td><%= model.batery %></td>
           <td><%= model.brand.description %></td>
-          <td><%= link_to 'Editar', edit_model_path(model) %></td>
-          <td><%= link_to 'Eliminar', model, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+          <td><%= link_to '', edit_model_path(model), class: 'glyphicon glyphicon-pencil' %></td>
+          <td><%= link_to '' , model, method: :delete, data: { confirm: 'Estás seguro?' }, class: "glyphicon glyphicon-remove"  %></td>
         </tr>
       <% end %>
     </tbody>
@@ -36,5 +39,5 @@
 
   <br>
 
-  <%= link_to 'Nuevo modelo', new_model_path %>
+  <%= link_to 'Nuevo modelo', new_model_path, class: 'btn btn-primary' %>
 </div>

@@ -12,51 +12,51 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.label 'Descripción' %>
+    <%= form.text_field :description, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.label 'Imagén' %>
+    <%= form.file_field :image, class: 'field' %>
   </div>
 
   <div class="field">
-    <%= form.label :video %>
-    <%= form.text_field :video %>
+    <%= form.label 'Trailer/Video' %>
+    <%= form.text_field :video, class: 'form-control'  %>
   </div>
 
   <div class="field">
-    <%= form.label :stock %>
-    <%= form.number_field :stock %>
+    <%= form.label 'En stock' %>
+    <%= form.number_field :stock, class: 'form-control'  %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.label 'Precio' %>
+    <%= form.text_field :price, class: 'form-control'  %>
   </div>
 
   <div class="field">
-    <%= form.label :model_id %>
-    <%= form.collection_select :model_id, @models, :id, :name %>
+    <%= form.label 'Modelo' %>
+    <%= form.collection_select :model_id, Model.all, :id, :name %>
   </div>
 
   <div class="field">
-    <%= form.label :memory_id %>
-    <%= form.collection_select :memory_id, @memories, :id, :description %>
+    <%= form.label 'Memoria' %>
+    <%= form.collection_select :memory_id, Memory.all, :id, :description %>
   </div>
 
   <div class="field">
-    <%= form.label :color_id %>
-    <%= form.collection_select :color_id, @colors, :id, :name %>
+    <%= form.label 'Color' %>
+    <%= form.collection_select :color_id, Color.all, :id, :name%>
   </div>
 
   <div class="field">
-    <%= form.label :storage_id %>
-    <%= form.collection_select :storage_id, @storages, :id, :description %>
+    <%= form.label 'Almacenamiento' %>
+    <%= form.collection_select :storage_id, Storage.all, :id, :description %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions field">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

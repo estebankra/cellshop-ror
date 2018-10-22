@@ -7,7 +7,19 @@
               <p>Debes <%= link_to "iniciar sesión", new_user_session_path %> para agregar articulos a tu carrito</p>
         </div>
       <%end%>
-      <tbody>
+
+      <!--Usuario normal -->
+      <% if user_signed_in?%>
+        <% if current_user.is_admin? %>
+          <%= link_to 'Nuevo producto', new_product_path, class: 'btn btn-primary' %>
+        <%end%>
+      <%else%>
+        <div class="alert alert-info" role="alert">
+          <p>Debes <%= link_to "iniciar sesión", new_user_session_path %> para agregar articulos a tu carrito</p>
+        </div>
+      <%end%>
+
+      <tbody> 
           <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="#">Todos</a></li>
             <% @brands.each do |brand| %>
@@ -19,11 +31,11 @@
           <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="thumbnail thumbnail-content-phones">
               <div class="img-products">
-                <img class="img-responsive" <%= image_tag product.image.url(:medium) %>
+                <%= image_tag product.image.url(:thumb) %>
               </div>
               <div class="caption" role="menu" id="producto" name="producto">
                 <h4 class=" text-center"><%=product.model.name%></h4>
-                <p class="text-justify"><%=product.description%></p>
+                <p class="text-justify"><%= truncate(product.description, length:100) %></p>
                 <p class="text-justify">
                 <b>Memoria Ram:</b> <%=product.memory.description%></p>
                 <p class="text-justify">
@@ -38,11 +50,14 @@
                 <%=product.price%>gs
                 </p>
                 <p class="text-center">
-                <%= link_to "Ver más", product, class:"btn btn-light" %>
-                <% if user_signed_in? %>
-                <p class="text-center">
-                <a href="/carts/add/<%=product.id%>" class="btn btn-success" role="button" title="Agregar al carrito"><span class="glyphicon glyphicon-shopping-cart"></span></a>
-                </p>
+                <%= link_to "Ver más", product, class:"btn btn-dark" %>
+                <!--Usuario normal -->
+                <% if user_signed_in?%>
+                  <% if current_user.is_normal_user? %>
+                    <p class="text-center">
+                      <a href="/carts/add/<%=product.id%>" class="btn btn-success" role="button" title="Agregar al carrito"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                    </p>
+                  <%end%>
                 <%end%>
               </div>
             </div>

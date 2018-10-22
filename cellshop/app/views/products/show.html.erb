@@ -4,6 +4,8 @@
         <div class="thumbnail thumbnail-content-phones">
             <img class="img-responsive" <%= image_tag @product.image.url(:medium) %>
             <h4 class=" text-center"><b><%=@product.model.name%></b></h4>
+            <%= link_to 'Editar', edit_product_path(@product), class: 'btn btn-primary' %>
+            <%= link_to 'Eliminar', @product, method: :delete, data: { confirm: 'Estás seguro?' }, class: 'btn btn-danger' %>
         </div>
       </div>
       <div class="box">
@@ -85,11 +87,17 @@
         </div>
     </div>   
   <% if user_signed_in? %>
+    <% if current_user.is_admin? %>
+      <div class="caption" role="menu" id="producto" name="producto">
+          <p class="text-center"><b>Precio:</b> <%=@product.price%>gs</p>
+      </div> 
+    <% else %>
     <div class="row center-xs">
       <div class="caption" role="menu" id="producto" name="producto">
           <p class="text-center"><b>Precio:</b> <%=@product.price%>gs</p>
           <a href="/carts/add/<%=@product.id%>" class="btn btn-success" role="button" title="Agregar al carrito"><span class="glyphicon glyphicon-shopping-cart"></span></a>
       </div>     
     </div>
+    <%end%>  
   <%end%>    
 </div><br>

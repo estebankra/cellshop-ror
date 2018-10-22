@@ -29,7 +29,7 @@ class MemoriesController < ApplicationController
 
     respond_to do |format|
       if @memory.save
-        format.html { redirect_to @memory, notice: 'Memory was successfully created.' }
+        format.html { redirect_to memories_url, notice: 'La memoria se guargo correctamente!' }
         format.json { render :show, status: :created, location: @memory }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class MemoriesController < ApplicationController
   def update
     respond_to do |format|
       if @memory.update(memory_params)
-        format.html { redirect_to @memory, notice: 'Memory was successfully updated.' }
+        format.html { redirect_to memories_url, notice: 'La memoria se edito correctamente!' }
         format.json { render :show, status: :ok, location: @memory }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class MemoriesController < ApplicationController
   def destroy
     @memory.destroy
     respond_to do |format|
-      format.html { redirect_to memories_url, notice: 'Memory was successfully destroyed.' }
+      format.html { redirect_to memories_url, notice: 'La memoria se eliminó correctamente!' }
       format.json { head :no_content }
     end
   end
