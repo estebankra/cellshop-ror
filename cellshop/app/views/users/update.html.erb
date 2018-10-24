@@ -1,0 +1,60 @@
+<div class="container-div">
+  <h2>Actualizar información</h2>
+
+  <%= form_for @user, :url => { :action => :save } do |f| %>
+    <ul>
+      <% @user.errors.full_messages.each do |m| %>
+      <li> <%= m %> </li>
+      <%end%>
+    </ul>
+
+    <h3>Obligatoria</h3>
+    <hr>
+
+    <p> 
+      <%= label_tag 'Nombres*' %>
+      <%= f.text_field :firstname, class: "form-control" %>
+    </p>
+
+    <p> 
+      <%= label_tag 'Apellidos*' %>
+      <%= f.text_field :lastname, class: "form-control" %>
+    </p>
+
+    <p> 
+      <%= label_tag 'Número de documento*' %>
+      <%= f.number_field :docnum, class: "form-control" %>
+    </p>
+
+    <p> 
+      <%= label_tag 'Número de telefóno*' %>
+      <%= f.number_field :phone, class: "form-control" %>
+    </p>
+    
+    <h3>Opcional</h3>
+    <hr>
+    <p> 
+      <%= label_tag 'Fecha de nacimiento' %>
+      <%= f.date_field :birth, class: "form-control" %>
+    </p>
+
+    <p> 
+      <%= label_tag 'Dirección' %>
+      <%= f.text_field :address, class: "form-control" %>
+    </p>
+
+    <p> 
+      <%= label_tag 'Ciudad' %>
+      <%= f.text_field :city, class: "form-control" %>
+    </p>
+
+    <p> 
+      <%= label_tag 'País' %>
+      <%= f.text_field :country, class: "form-control" %>
+    </p>
+
+    <%= f.submit "Guardar", class:"large-padding btn btn-primary" %>
+
+  <%end%>
+
+</div><br>

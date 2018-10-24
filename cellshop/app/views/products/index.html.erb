@@ -6,6 +6,11 @@
       <% if user_signed_in?%>
         <% if current_user.is_admin? %>
           <%= link_to 'Nuevo producto', new_product_path, class: 'btn btn-primary' %>
+
+        <%elsif current_user.firstname == '' or current_user.firstname.nil?  or current_user.lastname == '' or current_user.lastname.nil? or current_user.phone == '' or current_user.phone.nil? or current_user.docnum == '' or current_user.docnum.nil? %>
+            <div class="alert alert-warning" role="alert">
+             <p>Debes <%= link_to "completar tu perfil", users_update_path %> para agregar articulos a tu carrito</p>
+            </div>
         <%end%>
       <%else%>
         <div class="alert alert-info" role="alert">
@@ -47,7 +52,7 @@
                 <%= link_to "Ver más", product, class:"btn btn-dark" %>
                 <!--Usuario normal -->
                 <% if user_signed_in?%>
-                  <% if current_user.is_normal_user? %>
+                  <% if current_user.is_normal_user? and !(current_user.firstname == '' or current_user.firstname.nil?  or current_user.lastname == '' or current_user.lastname.nil? or current_user.phone == '' or current_user.phone.nil? or current_user.docnum == '' or current_user.docnum.nil?) %>
                     <p class="text-center">
                       <a href="/carts/add/<%=product.id%>" class="btn btn-success" role="button" title="Agregar al carrito"><span class="glyphicon glyphicon-shopping-cart"></span></a>
                     </p>

@@ -23,7 +23,8 @@
                 <%= current_user.email %>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><%= link_to "Perfil", user_session_path%></li>
+                <li><%= link_to "Perfil", '/users/update' %></li>
+                <li><%= link_to "Cuenta", '/users/edit' %></li>
                 <li role="separator" class="divider"></li>
                 <li class="col-md">
                   <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
@@ -37,7 +38,7 @@
               <%= link_to "Pedidos", orders_path %>
             </li>
             <li class="col-md">
-              <%= link_to "Permisos", user_session_path %>
+              <%= link_to "Usuarios", users_registers_path %>
             </li>
             <li class="col-md">
               <%= link_to "Modelos", models_path %>
@@ -60,7 +61,8 @@
                   <%= current_user.email %>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><%= link_to "Perfil", user_session_path%></li>
+                  <li><%= link_to "Perfil", '/users/update' %></li>
+                  <li><%= link_to "Cuenta", '/users/edit' %></li>
                   <li role="separator" class="divider"></li>
                   <li class="col-md">
                     <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>

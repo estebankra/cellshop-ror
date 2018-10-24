@@ -1,0 +1,26 @@
+<div class="container-div">
+
+  <h1>Pedidos</h1>
+
+  <table class="table table-bordered center-text">
+    <thead class="thead-dark center-text">
+      <tr>
+        <th>Email</th>
+        <th>Nombre</th>
+        <th>Permisos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.firstname %></td>
+          <td><%= link_to '', users_level_path , class: 'glyphicon glyphicon-ok' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+</div>

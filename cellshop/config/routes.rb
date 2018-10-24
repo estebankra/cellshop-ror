@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/registers'
+  get 'users/level'
   resources :order_details
   resources :carts
   get 'carts/add/:id' => 'carts#add'
@@ -6,6 +8,8 @@ Rails.application.routes.draw do
   resources :orders
   devise_for :users
   get 'users/registers'
+  get 'users/update'
+  patch 'users/save'
   get 'home/index'
   get 'home_controller/index'
   resources :products
