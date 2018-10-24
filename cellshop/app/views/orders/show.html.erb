@@ -4,44 +4,48 @@
 
 	<h1>Detalles del Pedido</h1>
 
-  <table class="table">
-    <thead>
+  <table class="table table-bordered center-text">
+    <thead class="thead-dark center-text">
       <tr>
+        <% if current_user.is_admin? %>
+          <th>Usuario</th>
+        <%end%>
         <th>Fecha de pedido</th>
         <th>Precio Total</th>
         <th>Fecha de entrega</th>
-        <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
         <tr>
+          <% if current_user.is_admin? %>
+            <td><%= @order.user.email %></td>
+          <%end%>
           <td><%= @order.created_at %></td>
-          <td><%= @order.total_price %></td>
+          <td>Gs. <%= @order.total_price %></td>
           <% if @order.date_delivered.nil?%>
             <td>No entregado</td>
           <%else%>
-            <td>@order.date_delivered </td>
+            <td><%= @order.date_delivered%></td>
           <%end%>
         </tr>
     </tbody>
   </table>
 	
 	<h2>Articulos del Pedido</h2>
-  <table class="table">
-    <thead>
+  <table class="table table-bordered center-text">
+    <thead class="thead-dark center-text">
       <tr>
         <th>Articulo</th>
         <th>Precio</th>
-        <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
     	<% @order_details.each do |order| %>
         <tr>
-          <td><%= order.product.model.name %><img class="img-responsive" <%= image_tag order.product.image.url(:mini) %></td>
-          <td><%= order.price %></td>
+          <td><%= order.product.model.name %><br><%= image_tag order.product.image.url(:mini), class: 'img-responsive' %></td>
+          <td>Gs. <%= order.price %></td>
         </tr>
         <%end%>
     </tbody>

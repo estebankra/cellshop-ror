@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'orders/add/:id' => 'orders#add'
   resources :orders
   devise_for :users
+  get 'users/registers'
   get 'home/index'
   get 'home_controller/index'
   resources :products

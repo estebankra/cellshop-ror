@@ -2,12 +2,6 @@
   <section class="section">
     <div class="container">
       <h1>Celulares</h1>
-      <% if !user_signed_in? %>
-        <div class="alert alert-info" role="alert">
-              <p>Debes <%= link_to "iniciar sesión", new_user_session_path %> para agregar articulos a tu carrito</p>
-        </div>
-      <%end%>
-
       <!--Usuario normal -->
       <% if user_signed_in?%>
         <% if current_user.is_admin? %>
@@ -47,7 +41,7 @@
                 </p>
                 <p class="text-justify">
                 <b>Precio:</b>
-                <%=product.price%>gs
+                Gs. <%=product.price%>
                 </p>
                 <p class="text-center">
                 <%= link_to "Ver más", product, class:"btn btn-dark" %>

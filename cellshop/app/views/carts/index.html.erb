@@ -1,13 +1,13 @@
 <div class="container-div">
   <h1>Carrito</h1>
-
-  <table class="table">
-    <thead>
+  <table class="table table-bordered center-text">
+    <thead class="thead-dark center-text">
       <tr>
         <th>Fecha</th>
         <th>Precio</th>
         <th>Producto</th>
-        <th colspan="3"></th>
+        <th>Ver más</th>
+        <th>Quitar</th>
       </tr>
     </thead>
 
@@ -15,10 +15,10 @@
       <% @carts.each do |cart| %>
         <tr>
           <td><%= cart.created_at %></td>
-          <td><%= cart.price %></td>
+          <td>Gs.  <%= cart.price %></td>
           <td><%= cart.product.model.name %></td>
-          <td><%= link_to 'Ver más', cart.product %></td>
-          <td><%= link_to 'Eliminar', cart, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+          <td><%= link_to '', cart.product, class: 'glyphicon glyphicon-eye-open' %></td>
+          <td><%= link_to '' , cart, method: :delete, data: { confirm: 'Estás seguro?' }, class: "glyphicon glyphicon-remove"  %></td>
         </tr>
       <% end %>
     </tbody>

@@ -2,19 +2,16 @@
     <section class="section">
         <div class="container">
 			<h1>Celulares</h1>	
-
 			<!--Usuario normal -->
-		     <% if user_signed_in?%>
-		        <% if current_user.is_normal_user? %>
-		          <div class="alert alert-info" role="alert">
-		            <p>Debes <%= link_to "iniciar sesión", new_user_session_path %> para agregar articulos a tu carrito</p>
-		          </div>
-		          <!--Admin -->
-		        <%else%>
-		          <%= link_to 'Nuevo producto', new_product_path, class: 'btn btn-primary' %>
+		    <% if user_signed_in?%>
+		       	<% if current_user.is_admin? %>
+		          	<%= link_to 'Nuevo producto', new_product_path, class: 'btn btn-primary' %>
 		        <%end%>
-		      <%end%>
-		      
+		    <%else%>
+		        <div class="alert alert-info" role="alert">
+		          	<p>Debes <%= link_to "iniciar sesión", new_user_session_path %> para agregar articulos a tu carrito</p>
+		        </div>
+		    <%end%>
 		  	<tbody>
 		    <ul class="nav nav-tabs">
 		      <li role="presentation" class="active"><%= link_to "Todos",  products_path %></li>
@@ -41,7 +38,7 @@
 						</p>
 						<p class="text-justify">
 						<b>Precio:</b>
-						<%=product.price%>gs
+						Gs. <%=product.price%>
 						</p>
 						<p class="text-center">
 						<%= link_to "Ver más", product, class:"btn btn-dark" %>

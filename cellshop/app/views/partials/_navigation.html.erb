@@ -34,6 +34,12 @@
           <!--Admin -->
         <%else%>
             <li class="col-md">
+              <%= link_to "Pedidos", orders_path %>
+            </li>
+            <li class="col-md">
+              <%= link_to "Permisos", user_session_path %>
+            </li>
+            <li class="col-md">
               <%= link_to "Modelos", models_path %>
             </li>
             <li class="col-md">
@@ -44,6 +50,9 @@
             </li>
             <li class="col-md">
               <%= link_to "Marcas", brands_path %>
+            </li>
+            <li class="col-md">
+              <%= link_to "Almacenamientos", storages_path %>
             </li>
             <li class="col-md">
               <div class="dropdown">

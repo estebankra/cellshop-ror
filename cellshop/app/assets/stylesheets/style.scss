@@ -5,12 +5,28 @@ html, body {
     height: 100%;
     margin: 0px;
     font-size: 18px;
-	font-family: 'Raleway', sans-serif !important;
+	font-family: 'Nunito', sans-serif !important;
 
+}
+
+body{
+	background-image: url('fondo6.png') !important;
+}
+
+.table-bordered {
+	border: 2px solid !important;
+}
+
+.center-text, th{
+	text-align: center !important;
 }
 
 div .img-products{
 	margin-left: 8%;
+}
+
+.img-responsive{
+	display: inline !important;
 }
 
 .nav {
@@ -41,7 +57,7 @@ div .img-products{
 }
 
 .alerts-div{
-	margin: 15%;
+	margin: 2%;
 	margin-top: 1%;
 	margin-bottom: 0px;
 }

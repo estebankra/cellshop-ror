@@ -1,27 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="container-div">
 
-<h1>Storages</h1>
+  <h1>Almacenamientos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @storages.each do |storage| %>
+    <table class="table table-bordered center-text">
+      <thead class="thead-dark center-text">
       <tr>
-        <td><%= storage.description %></td>
-        <td><%= link_to 'Show', storage %></td>
-        <td><%= link_to 'Edit', edit_storage_path(storage) %></td>
-        <td><%= link_to 'Destroy', storage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Descripción</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @storages.each do |storage| %>
+        <tr>
+          <td><%= storage.description %></td>
+          <td><%= link_to '', edit_storage_path(storage), class: 'glyphicon glyphicon-pencil' %></td>
+            <td><%= link_to '' , storage, method: :delete, data: { confirm: 'Estás seguro?' }, class: "glyphicon glyphicon-remove"  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Storage', new_storage_path %>
+  <br>
+
+  <%= link_to 'Nuevo almacenamiento', new_storage_path, class: 'btn btn-primary' %>
+</div>

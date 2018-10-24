@@ -35,6 +35,12 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @order = Order.find(params[:id])
+    @order.date_delivered = Time.now
+
+    if @order.save
+      redirect_to orders_path
+    end
   end
 
   # POST /orders
