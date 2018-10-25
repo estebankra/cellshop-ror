@@ -7,6 +7,11 @@
       <li> <%= m %> </li>
       <%end%>
     </ul>
+  
+    <p>  
+      Perfil:<br> <%= image_tag(@user.avatar) %><br>
+      <%= link_to 'Cambiar', 'https://es.gravatar.com/' %>
+    </p>
 
     <h3>Obligatoria</h3>
     <hr>

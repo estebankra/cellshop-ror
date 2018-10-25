@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   patch 'users/save'
   get 'home/index'
   get 'home_controller/index'
+  post 'products/:id'  => 'products#comment'
   resources :products
   resources :models
   resources :memories

@@ -13,7 +13,22 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @comment = Comment.new
-    @comments = Comment.all
+    @comments = Comment.where("comments.product_id = ?", params[:id])
+      
+  end
+
+  def comment
+    comment = Comment.new
+    comment.body = params[:comment][:body]
+    comment.user_id = current_user.id
+    comment.product_id = params[:id]
+    @product = Product.find(comment.product_id)
+
+    respond_to do |format|
+      if comment.save
+        format.html { redirect_to @product , notice: 'Comentario realizado!' }
+      end
+    end 
   end
 
   # GET /products/new
