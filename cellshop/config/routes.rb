@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'users/registers'
-  get 'users/level'
+  get 'users/level/:id' => 'users#level'
   resources :order_details
   resources :carts
   get 'carts/add/:id' => 'carts#add'

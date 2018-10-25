@@ -1,24 +1,39 @@
 <div class="container-div">
 
-  <h1>Pedidos</h1>
+  <h1>Usuarios registrados</h1>
 
   <table class="table table-bordered center-text">
     <thead class="thead-dark center-text">
       <tr>
         <th>Email</th>
         <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Número de documento</th>
+        <th>Telefóno</th>
+        <th>Rol</th>
         <th>Permisos</th>
       </tr>
     </thead>
 
     <tbody>
       <% @users.each do |user| %>
-        <tr>
-          <td><%= user.email %></td>
-          <td><%= user.firstname %></td>
-          <td><%= link_to '', users_level_path , class: 'glyphicon glyphicon-ok' %></td>
-        </tr>
-      <% end %>
+        <% if user != current_user %>
+          <tr>
+            <td><%= user.email %></td>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.docnum %></td>
+            <td><%= user.phone %></td>
+            <% if user.permission_level == 1 %>
+              <td>Usuario</td>
+              <td><a href="/users/level/<%=user.id%>" class="btn btn-success" role="button" title="Agregar al carrito"><span class="glyphicon glyphicon-arrow-up"></span></a></td>
+            <% else %>
+              <td>Admin</td>
+              <td><a href="/users/level/<%=user.id%>" class="btn btn-danger" role="button" title="Agregar al carrito"><span class="glyphicon glyphicon-arrow-down"></span></a></td>
+            <%end%>
+          </tr>
+        <%end%>
+      <%end%>
     </tbody>
   </table>
 

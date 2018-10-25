@@ -1,10 +1,23 @@
 class UsersController < ApplicationController
+  before_action :authenticate_admin!, only: [:level]
 
   def registers
   	@users = User.all
   end
 
   def level
+    user = User.find(params[:id])
+    if user.permission_level == 1
+      user.permission_level = 2
+    else
+      user.permission_level = 1
+    end
+
+    respond_to do |format|
+      if user.save
+        format.html { redirect_to users_registers_path, notice: 'Permisos modificados!' }
+      end
+    end
   end
 
   def update
