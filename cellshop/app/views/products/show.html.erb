@@ -111,5 +111,18 @@
       </div>     
     </div>
     <%end%>  
-  <%end%>    
+  <%end%>
+  <!--Comentarios-->
+  <h3>Comentarios</h3>
+  <hr>  
+  <p> 
+     <%= link_to "Comentar", comments_new_path, class:"large-padding btn btn-primary" %>
+  </p>
+  
+  <% @comments.each do |comment| %>
+  <div class="panel panel-default">
+    <div class="panel-heading"><%=comment.user.email%> || <%=comment.updated_at%></div>
+    <div class="panel-body"><%=comment.body%></div>
+  </div>
+  <%end%>
 </div><br>
