@@ -1,0 +1,1354 @@
+  [1m[35m (1275.0ms)[0m  [1m[35mCREATE DATABASE "cellshop_development" ENCODING = 'unicode'[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (868.3ms)[0m  [1m[35mCREATE DATABASE "cellshop_test" ENCODING = 'unicode'[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (20.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1986760437286777950)[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateStorages (20181011141920)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE "storages" ("id" bigserial primary key, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181011141920_create_storages.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011141920"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateColors (20181011142531)
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE TABLE "colors" ("id" bigserial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181011142531_create_colors.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011142531"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateBrands (20181011142630)
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "brands" ("id" bigserial primary key, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181011142630_create_brands.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011142630"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateMemories (20181011142702)
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "memories" ("id" bigserial primary key, "description" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181011142702_create_memories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011142702"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateModels (20181011145131)
+  [1m[35m (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "models" ("id" bigserial primary key, "name" character varying, "resolution" character varying, "screen" character varying, "weight" character varying, "dimensions" character varying, "batery" character varying, "brand_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ec6eb36a24"
+FOREIGN KEY ("brand_id")
+  REFERENCES "brands" ("id")
+)[0m
+  ↳ db/migrate/20181011145131_create_models.rb:3
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_models_on_brand_id" ON "models"  ("brand_id")[0m
+  ↳ db/migrate/20181011145131_create_models.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011145131"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateProducts (20181011150245)
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "description" character varying, "image" character varying, "stock" integer, "price" float, "model_id" bigint, "memory_id" bigint, "color_id" bigint, "storage_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_490871216e"
+FOREIGN KEY ("model_id")
+  REFERENCES "models" ("id")
+, CONSTRAINT "fk_rails_d1f91d56de"
+FOREIGN KEY ("memory_id")
+  REFERENCES "memories" ("id")
+, CONSTRAINT "fk_rails_242c79a2ec"
+FOREIGN KEY ("color_id")
+  REFERENCES "colors" ("id")
+, CONSTRAINT "fk_rails_768b5f1376"
+FOREIGN KEY ("storage_id")
+  REFERENCES "storages" ("id")
+)[0m
+  ↳ db/migrate/20181011150245_create_products.rb:3
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_model_id" ON "products"  ("model_id")[0m
+  ↳ db/migrate/20181011150245_create_products.rb:3
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_memory_id" ON "products"  ("memory_id")[0m
+  ↳ db/migrate/20181011150245_create_products.rb:3
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_color_id" ON "products"  ("color_id")[0m
+  ↳ db/migrate/20181011150245_create_products.rb:3
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE  INDEX  "index_products_on_storage_id" ON "products"  ("storage_id")[0m
+  ↳ db/migrate/20181011150245_create_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011150245"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to DeviseCreateUsers (20181011151521)
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "firstname" character varying, "lastname" character varying, "birth" date, "docnum" character varying, "address" character varying, "city" character varying, "country" character varying, "phone" character varying, "permission_level" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181011151521_devise_create_users.rb:5
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20181011151521_devise_create_users.rb:47
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  ↳ db/migrate/20181011151521_devise_create_users.rb:48
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011151521"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateOrders (20181011155659)
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "total_price" float, "date_delivered" date, "user_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_f868b47f6a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  ↳ db/migrate/20181011155659_create_orders.rb:3
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_orders_on_user_id" ON "orders"  ("user_id")[0m
+  ↳ db/migrate/20181011155659_create_orders.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011155659"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateCarts (20181011160629)
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "carts" ("id" bigserial primary key, "price" float, "user_id" bigint, "product_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_ea59a35211"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_916f2a1419"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20181011160629_create_carts.rb:3
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_carts_on_user_id" ON "carts"  ("user_id")[0m
+  ↳ db/migrate/20181011160629_create_carts.rb:3
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_carts_on_product_id" ON "carts"  ("product_id")[0m
+  ↳ db/migrate/20181011160629_create_carts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011160629"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateOrderDetails (20181011160823)
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "order_details" ("id" bigserial primary key, "price" float, "order_id" bigint, "product_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_e5976611fd"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_4f2ac9473b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20181011160823_create_order_details.rb:3
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE  INDEX  "index_order_details_on_order_id" ON "order_details"  ("order_id")[0m
+  ↳ db/migrate/20181011160823_create_order_details.rb:3
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE  INDEX  "index_order_details_on_product_id" ON "order_details"  ("product_id")[0m
+  ↳ db/migrate/20181011160823_create_order_details.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181011160823"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to AddImageToProducts (20181012175110)
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "products" ADD "image_file_name" character varying[0m
+  ↳ db/migrate/20181012175110_add_image_to_products.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "products" ADD "image_content_type" character varying[0m
+  ↳ db/migrate/20181012175110_add_image_to_products.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "products" ADD "image_file_size" bigint[0m
+  ↳ db/migrate/20181012175110_add_image_to_products.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "products" ADD "image_updated_at" timestamp[0m
+  ↳ db/migrate/20181012175110_add_image_to_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181012175110"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to AddTrailerToProducts (20181018173249)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "products" ADD "video" character varying[0m
+  ↳ db/migrate/20181018173249_add_trailer_to_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181018173249"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Migrating to CreateComments (20181025032649)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "body" character varying, "user_id" bigint, "product_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_03de2dc08c"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_a0d280f6e4"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  ↳ db/migrate/20181025032649_create_comments.rb:3
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_user_id" ON "comments"  ("user_id")[0m
+  ↳ db/migrate/20181025032649_create_comments.rb:3
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_product_id" ON "comments"  ("product_id")[0m
+  ↳ db/migrate/20181025032649_create_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181025032649"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-05-12 23:11:28.875164"], ["updated_at", "2020-05-12 23:11:28.875164"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(1986760437286777950)[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1986760437286777950)[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(1986760437286777950)[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/bin/rake:23
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:11:58 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:12:02 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (8158.0ms)
+  Rendered home/index.html.erb within layouts/application (4312.3ms)
+  Rendered partials/_navigation.html.erb (3.4ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 8327ms (Views: 8321.8ms | ActiveRecord: 0.0ms)
+
+
+  Rendered partials/_navigation.html.erb (1.1ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 4464ms (Views: 4462.8ms | ActiveRecord: 0.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/img/phone-font-index.jpg"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:12:11 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.6ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 31.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2020-05-12 19:12:13 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mBrand Load (0.7ms)[0m  [1m[34mSELECT "brands".* FROM "brands"[0m
+  ↳ app/views/products/index.html.erb:50
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (stock > 0)[0m
+  ↳ app/views/products/index.html.erb:55
+  Rendered products/index.html.erb within layouts/application (26.5ms)
+  Rendered partials/_navigation.html.erb (0.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 75ms (Views: 36.6ms | ActiveRecord: 21.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2020-05-12 19:12:18 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mBrand Load (0.3ms)[0m  [1m[34mSELECT "brands".* FROM "brands"[0m
+  ↳ app/views/products/index.html.erb:50
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (stock > 0)[0m
+  ↳ app/views/products/index.html.erb:55
+  Rendered products/index.html.erb within layouts/application (3.9ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2020-05-12 19:12:21 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (448.3ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 510ms (Views: 481.3ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2020-05-12 19:12:24 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.6ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 35.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2020-05-12 19:12:36 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vdWcjzypT/9c/uUjvgaKRrYwamGLIQN0qPhffkU1efYQxfbBsTHgORouHeaIosY/l0xV3KlTSIUZtCItmJ6h5g==", "user"=>{"email"=>"estebankra@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Registrate"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "estebankra@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "estebankra@gmail.com"], ["encrypted_password", "$2a$11$arsRmrePBd5E7g2cebkDeOwKDy1JNZqpvB6WyhU40Q5i9/7QAFbxK"], ["created_at", "2020-05-12 23:12:36.819473"], ["updated_at", "2020-05-12 23:12:36.819473"]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 108ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:12:36 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (2.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.5ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/img/phone-font-index.jpg"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/registers" for 127.0.0.1 at 2020-05-12 19:12:40 -0400
+Processing by UsersController#registers as HTML
+  Rendering users/registers.html.erb within layouts/application
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/registers.html.erb:19
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/registers.html.erb:20
+  Rendered users/registers.html.erb within layouts/application (8.1ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 44ms (Views: 33.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2020-05-12 19:12:41 -0400
+Processing by ModelsController#index as HTML
+  Rendering models/index.html.erb within layouts/application
+  [1m[36mModel Load (0.4ms)[0m  [1m[34mSELECT "models".* FROM "models"[0m
+  ↳ app/views/models/index.html.erb:21
+  Rendered models/index.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 31.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/update" for 127.0.0.1 at 2020-05-12 19:12:44 -0400
+Processing by UsersController#update as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/update.html.erb within layouts/application
+  Rendered users/update.html.erb within layouts/application (7.6ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 36.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2020-05-12 19:12:49 -0400
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:8
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (1.4ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 45ms (Views: 30.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/registers" for 127.0.0.1 at 2020-05-12 19:12:50 -0400
+Processing by UsersController#registers as HTML
+  Rendering users/registers.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/registers.html.erb:19
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/registers.html.erb:20
+  Rendered users/registers.html.erb within layouts/application (2.8ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2020-05-12 19:12:50 -0400
+Processing by ModelsController#index as HTML
+  Rendering models/index.html.erb within layouts/application
+  [1m[36mModel Load (0.3ms)[0m  [1m[34mSELECT "models".* FROM "models"[0m
+  ↳ app/views/models/index.html.erb:21
+  Rendered models/index.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 29.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/colors" for 127.0.0.1 at 2020-05-12 19:12:51 -0400
+Processing by ColorsController#index as HTML
+  Rendering colors/index.html.erb within layouts/application
+  [1m[36mColor Load (0.5ms)[0m  [1m[34mSELECT "colors".* FROM "colors"[0m
+  ↳ app/views/colors/index.html.erb:15
+  Rendered colors/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 42ms (Views: 33.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2020-05-12 19:12:52 -0400
+Processing by ModelsController#index as HTML
+  Rendering models/index.html.erb within layouts/application
+  [1m[36mModel Load (0.3ms)[0m  [1m[34mSELECT "models".* FROM "models"[0m
+  ↳ app/views/models/index.html.erb:21
+  Rendered models/index.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 34.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2020-05-12 19:12:53 -0400
+Processing by ModelsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:12:53 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (4.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.8ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2020-05-12 19:12:56 -0400
+Processing by ModelsController#index as HTML
+  Rendering models/index.html.erb within layouts/application
+  [1m[36mModel Load (0.3ms)[0m  [1m[34mSELECT "models".* FROM "models"[0m
+  ↳ app/views/models/index.html.erb:21
+  Rendered models/index.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 31.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2020-05-12 19:12:57 -0400
+Processing by ModelsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:12:57 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/colors" for 127.0.0.1 at 2020-05-12 19:13:00 -0400
+Processing by ColorsController#index as HTML
+  Rendering colors/index.html.erb within layouts/application
+  [1m[36mColor Load (0.3ms)[0m  [1m[34mSELECT "colors".* FROM "colors"[0m
+  ↳ app/views/colors/index.html.erb:15
+  Rendered colors/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 31.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/colors/new" for 127.0.0.1 at 2020-05-12 19:13:01 -0400
+Processing by ColorsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:13:01 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/memories" for 127.0.0.1 at 2020-05-12 19:13:02 -0400
+Processing by MemoriesController#index as HTML
+  Rendering memories/index.html.erb within layouts/application
+  [1m[36mMemory Load (0.4ms)[0m  [1m[34mSELECT "memories".* FROM "memories"[0m
+  ↳ app/views/memories/index.html.erb:15
+  Rendered memories/index.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 59ms (Views: 50.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/memories/new" for 127.0.0.1 at 2020-05-12 19:13:04 -0400
+Processing by MemoriesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:13:04 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/brands" for 127.0.0.1 at 2020-05-12 19:13:07 -0400
+Processing by BrandsController#index as HTML
+  Rendering brands/index.html.erb within layouts/application
+  [1m[36mBrand Load (2.5ms)[0m  [1m[34mSELECT "brands".* FROM "brands"[0m
+  ↳ app/views/brands/index.html.erb:15
+  Rendered brands/index.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 31.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/brands/new" for 127.0.0.1 at 2020-05-12 19:13:08 -0400
+Processing by BrandsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:13:08 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/memories" for 127.0.0.1 at 2020-05-12 19:13:09 -0400
+Processing by MemoriesController#index as HTML
+  Rendering memories/index.html.erb within layouts/application
+  [1m[36mMemory Load (0.3ms)[0m  [1m[34mSELECT "memories".* FROM "memories"[0m
+  ↳ app/views/memories/index.html.erb:15
+  Rendered memories/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 33.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/memories/new" for 127.0.0.1 at 2020-05-12 19:13:10 -0400
+Processing by MemoriesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:13:10 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/storages" for 127.0.0.1 at 2020-05-12 19:13:11 -0400
+Processing by StoragesController#index as HTML
+  Rendering storages/index.html.erb within layouts/application
+  [1m[36mStorage Load (1.3ms)[0m  [1m[34mSELECT "storages".* FROM "storages"[0m
+  ↳ app/views/storages/index.html.erb:16
+  Rendered storages/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 31.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/storages/new" for 127.0.0.1 at 2020-05-12 19:13:12 -0400
+Processing by StoragesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:13:12 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2020-05-12 19:13:15 -0400
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/products/index.html.erb:32
+  [1m[36mBrand Load (0.2ms)[0m  [1m[34mSELECT "brands".* FROM "brands"[0m
+  ↳ app/views/products/index.html.erb:50
+  [1m[36mProduct Load (6.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (stock > 0)[0m
+  ↳ app/views/products/index.html.erb:55
+  Rendered products/index.html.erb within layouts/application (11.1ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 32.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2020-05-12 19:13:20 -0400
+Processing by OrdersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/orders_controller.rb:8
+  Rendering orders/index.html.erb within layouts/application
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/orders/index.html.erb:22
+  Rendered orders/index.html.erb within layouts/application (1.4ms)
+  Rendered partials/_navigation.html.erb (0.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/registers" for 127.0.0.1 at 2020-05-12 19:13:21 -0400
+Processing by UsersController#registers as HTML
+  Rendering users/registers.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/registers.html.erb:19
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/registers.html.erb:20
+  Rendered users/registers.html.erb within layouts/application (2.7ms)
+  Rendered partials/_navigation.html.erb (0.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2020-05-12 19:13:22 -0400
+Processing by ModelsController#index as HTML
+  Rendering models/index.html.erb within layouts/application
+  [1m[36mModel Load (0.3ms)[0m  [1m[34mSELECT "models".* FROM "models"[0m
+  ↳ app/views/models/index.html.erb:21
+  Rendered models/index.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2020-05-12 19:13:23 -0400
+Processing by ModelsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:13:23 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/update" for 127.0.0.1 at 2020-05-12 19:13:27 -0400
+Processing by UsersController#update as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/update.html.erb within layouts/application
+  Rendered users/update.html.erb within layouts/application (2.9ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/brands" for 127.0.0.1 at 2020-05-12 19:13:32 -0400
+Processing by BrandsController#index as HTML
+  Rendering brands/index.html.erb within layouts/application
+  [1m[36mBrand Load (0.2ms)[0m  [1m[34mSELECT "brands".* FROM "brands"[0m
+  ↳ app/views/brands/index.html.erb:15
+  Rendered brands/index.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/brands/new" for 127.0.0.1 at 2020-05-12 19:13:34 -0400
+Processing by BrandsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:13:34 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 32.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:15:15 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 33.3ms | ActiveRecord: 0.4ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/img/phone-font-index.jpg"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users/registers" for 127.0.0.1 at 2020-05-12 19:15:16 -0400
+Processing by UsersController#registers as HTML
+  Rendering users/registers.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/registers.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/registers.html.erb:20
+  Rendered users/registers.html.erb within layouts/application (2.4ms)
+  Rendered partials/_navigation.html.erb (0.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/models" for 127.0.0.1 at 2020-05-12 19:15:17 -0400
+Processing by ModelsController#index as HTML
+  Rendering models/index.html.erb within layouts/application
+  [1m[36mModel Load (4.4ms)[0m  [1m[34mSELECT "models".* FROM "models"[0m
+  ↳ app/views/models/index.html.erb:21
+  Rendered models/index.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 41ms (Views: 36.0ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2020-05-12 19:15:18 -0400
+Processing by ModelsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:15:18 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:16:02 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.4ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/img/phone-font-index.jpg"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/models" for 127.0.0.1 at 2020-05-12 19:16:03 -0400
+Processing by ModelsController#index as HTML
+  Rendering models/index.html.erb within layouts/application
+  [1m[36mModel Load (0.4ms)[0m  [1m[34mSELECT "models".* FROM "models"[0m
+  ↳ app/views/models/index.html.erb:21
+  Rendered models/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/models/new" for 127.0.0.1 at 2020-05-12 19:16:04 -0400
+Processing by ModelsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:16:04 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.6ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/colors" for 127.0.0.1 at 2020-05-12 19:16:06 -0400
+Processing by ColorsController#index as HTML
+  Rendering colors/index.html.erb within layouts/application
+  [1m[36mColor Load (0.2ms)[0m  [1m[34mSELECT "colors".* FROM "colors"[0m
+  ↳ app/views/colors/index.html.erb:15
+  Rendered colors/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/colors/new" for 127.0.0.1 at 2020-05-12 19:16:06 -0400
+Processing by ColorsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:16:06 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (2.2ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 38.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:16:41 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (262.9ms)
+  [1m[36mUser Load (5.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (26.4ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 370ms (Views: 354.9ms | ActiveRecord: 12.7ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/img/phone-font-index.jpg"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/colors" for 127.0.0.1 at 2020-05-12 19:16:42 -0400
+Processing by ColorsController#index as HTML
+  Rendering colors/index.html.erb within layouts/application
+  [1m[36mColor Load (0.5ms)[0m  [1m[34mSELECT "colors".* FROM "colors"[0m
+  ↳ app/views/colors/index.html.erb:15
+  Rendered colors/index.html.erb within layouts/application (18.6ms)
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (7.6ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 58ms (Views: 33.6ms | ActiveRecord: 23.1ms)
+
+
+Started GET "/colors/new" for 127.0.0.1 at 2020-05-12 19:16:43 -0400
+Processing by ColorsController#new as HTML
+  Rendering colors/new.html.erb within layouts/application
+  Rendered colors/_form.html.erb (84.9ms)
+  Rendered colors/new.html.erb within layouts/application (87.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 144ms (Views: 119.8ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/colors/new" for 127.0.0.1 at 2020-05-12 19:16:52 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by ColorsController#new as HTML
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 32ms (ActiveRecord: 16.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:16:52 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (179.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (2.4ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 244ms (Views: 243.0ms | ActiveRecord: 0.4ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/img/phone-font-index.jpg"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/colors" for 127.0.0.1 at 2020-05-12 19:16:53 -0400
+Processing by ColorsController#index as HTML
+  Rendering colors/index.html.erb within layouts/application
+  [1m[36mColor Load (0.4ms)[0m  [1m[34mSELECT "colors".* FROM "colors"[0m
+  ↳ app/views/colors/index.html.erb:15
+  Rendered colors/index.html.erb within layouts/application (16.7ms)
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (7.9ms)
+  Rendered partials/_footer.html.erb (0.2ms)
+Completed 200 OK in 60ms (Views: 36.1ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/colors/new" for 127.0.0.1 at 2020-05-12 19:16:54 -0400
+Processing by ColorsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:16:54 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 38.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/colors" for 127.0.0.1 at 2020-05-12 19:16:55 -0400
+Processing by ColorsController#index as HTML
+  Rendering colors/index.html.erb within layouts/application
+  [1m[36mColor Load (0.3ms)[0m  [1m[34mSELECT "colors".* FROM "colors"[0m
+  ↳ app/views/colors/index.html.erb:15
+  Rendered colors/index.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 32ms (Views: 29.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/edit" for 127.0.0.1 at 2020-05-12 19:16:58 -0400
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (54.2ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 89ms (Views: 86.7ms | ActiveRecord: 0.4ms)
+
+
+Started PUT "/users" for 127.0.0.1 at 2020-05-12 19:17:02 -0400
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tg3p9OhhTemCE7Gezzj4c+74KhuEAAbwFNdQ3vOiS8V7apgDXfhVGL+r8vdiNkl56z2fd+nVixa0DbsuaFifSA==", "user"=>{"email"=>"estebankra@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Actualizar perfil"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /home/ek/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/registrations/edit.html.erb within layouts/application (1.7ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 134ms (Views: 35.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/update" for 127.0.0.1 at 2020-05-12 19:17:08 -0400
+Processing by UsersController#update as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/update.html.erb within layouts/application
+  Rendered users/update.html.erb within layouts/application (3.7ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 32.4ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/save" for 127.0.0.1 at 2020-05-12 19:17:30 -0400
+Processing by UsersController#save as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KmrrTRwnbkDR6UJEZvvCMZlX40x6nB6R3mNbDSd2z8ll3QHE3oXVUrFAR/i9o+YofySTqHvs/hb3HFX0s+jtng==", "user"=>{"firstname"=>"Esteban", "lastname"=>"K", "docnum"=>"4364888", "phone"=>"0983813404", "birth"=>"1998-12-05", "address"=>"Ca", "city"=>"Enc", "country"=>"Py"}, "commit"=>"Guardar"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "docnum" = $1, "birth" = $2, "phone" = $3, "country" = $4, "address" = $5, "city" = $6, "updated_at" = $7 WHERE "users"."id" = $8[0m  [["docnum", "4364888"], ["birth", "1998-12-05"], ["phone", "0983813404"], ["country", "Py"], ["address", "Ca"], ["city", "Enc"], ["updated_at", "2020-05-12 23:17:30.233784"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:40
+Redirected to http://localhost:3000/users/update
+Completed 302 Found in 8ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/update" for 127.0.0.1 at 2020-05-12 19:17:30 -0400
+Processing by UsersController#update as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24
+  Rendering users/update.html.erb within layouts/application
+  Rendered users/update.html.erb within layouts/application (2.3ms)
+  Rendered partials/_navigation.html.erb (0.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 35ms (Views: 32.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/brands" for 127.0.0.1 at 2020-05-12 19:17:34 -0400
+Processing by BrandsController#index as HTML
+  Rendering brands/index.html.erb within layouts/application
+  [1m[36mBrand Load (0.4ms)[0m  [1m[34mSELECT "brands".* FROM "brands"[0m
+  ↳ app/views/brands/index.html.erb:15
+  Rendered brands/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 38ms (Views: 35.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/brands/new" for 127.0.0.1 at 2020-05-12 19:17:34 -0400
+Processing by BrandsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :authenticate_admin! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2020-05-12 19:17:34 -0400
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/partials/_navigation.html.erb:12
+  Rendered partials/_navigation.html.erb (1.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.4ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/img/phone-font-index.jpg"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.1) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.1) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
